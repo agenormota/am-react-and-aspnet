@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
 
 function App() {
+  const tasks = [
+    {
+      id: 1,
+      description: "First Task",
+    },
+    {
+      id: 2,
+      description: "Second Task",
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <form>
+        <input id="id" type="text" placeholder="id" />
+        <input id="description" type="text" placeholder="description"/>
+        <button>+ Task</button>
+      </form>
+      <div className="mt-3">
+        <ul className="list-group">
+          {tasks.map((task) => (
+            <li key={task.id} className="list-group-item">
+              {task.id} - {task.description}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
 
